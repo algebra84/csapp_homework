@@ -1,0 +1,10 @@
+// 标号  PC      指令  %rdi  %rsi  %rax  %rsp            *%rsp      描述
+// M1  0x400560  callq 10    ---   ---   0x7fffffffe820  ---      调用fisrt(10)
+// F1  0x400548  lea   10    ---   ---   0x7fffffffe818  0x400565 进入first
+// F2  0x40054c  sub   10    11    ---   0x7fffffffe818  0x400565 继续first
+// F3  0x400550  callq 9     11    ---   0x7fffffffe818  0x400565 调用last
+// L1  0x400540  mov   9     11    ---   0x7fffffffe810  0x400555 进入last
+// L2  0x400543  imul  9     11    9     0x7fffffffe810  0x400555 继续last
+// L3  0x400547  retq  ---   ---   99    0x7fffffffe810  0x400555 retq
+// F4  0x400555  retq  ---   ---   99    0x7fffffffe818  0x400565 retq
+// M2  0x400565  mov   ---   ---   99    0x7fffffffe820  ---      继续
