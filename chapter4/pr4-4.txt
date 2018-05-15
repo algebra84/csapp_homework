@@ -1,0 +1,15 @@
+resum:
+    irmovq $0, %rax
+    andq %rsi, %rsi
+    jle   done
+
+    mrmovq (%rdi), %r8
+    irmovq $8, %r9
+    irmoveq $1, %r10
+    addq %r9, %rdi
+    subq %r10, %rsi
+    call resum
+    addq %r8, %rax
+
+done:
+    ret
