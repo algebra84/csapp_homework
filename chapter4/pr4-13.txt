@@ -1,0 +1,11 @@
+             irmovq V, rB           irmovq $128, %rsp
+fetch        icode:ifun <- M1[PC]   icode:ifun <- M1[0x16] = 3:0
+             rA:rB <- M1[PC+1]      rA:rB <- M1[0x17] = f:4
+             ValC <- M8[Pc+2]       Valc <- M8[0x18] = 128
+             Valp <- PC+10          Valp <- 0x16 + 10 = 0x20
+decode
+execute      ValE = 0+Valc          ValE = 0+Valc = 128
+             set CC                 ZF <- 0, SF <- 0, OF<-0
+memory
+writeback   R[rB] = ValE            R[%rsp] = 128
+PC update   PC<-valP                PC<-valP=0x20
